@@ -3,6 +3,7 @@ import SocketServer
 
 class Handler(SimpleHTTPServer.SimpleHTTPRequestHandler):
     def do_POST(self):
+        print self.requestline
         print self.headers
         if 'Content-Length' in self.headers:
           print self.rfile.read(int(self.headers['Content-Length']))
